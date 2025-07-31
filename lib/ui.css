@@ -60,3 +60,11 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* 多行文本超出隐藏 */
+.g-ellipsis2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

@@ -1,17 +1,34 @@
+/* 样式重置 */
 * {
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
 }
-
 body {
   margin: 0;
   font-size: 16px; /* 1rem = 16px */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--va-bg);
+  color: var(--va-fg);
 }
 
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  background-clip: padding-box;
+  border-radius: 4px;
+  min-height: 28px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+/* 工具类 */
 .g-full {
   width: 100%;
   height: 100%;
@@ -39,6 +56,9 @@ body {
 .g-flex {
   display: flex;
 }
+.g-flex-auto {
+  flex: auto;
+}
 .g-column {
   display: flex;
   flex-direction: column;
@@ -46,6 +66,14 @@ body {
 .g-space-between {
   display: flex;
   justify-content: space-between;
+}
+.g-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+.g-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
 }
 .g-center,
 .g-flex-center {
@@ -71,4 +99,68 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
+}
+.g-overflow-hidden {
+  overflow: hidden;
+}
+.g-overflow-auto {
+  overflow: auto;
+}
+
+/* 主题 */
+:root {
+  --va-theme: #1976d2;
+
+  /* background color */
+  --va-bg: #fff;
+  --va-bg1: var(--va-theme); /* primary: bright vivid surface color */
+  --va-bg2: #f8f8f8; /* secondary: surface color like modal, card */
+  --va-bg3: #c3dfff; /* complement surface color */
+
+  /* foreground color */
+  --va-fg: #333;
+  --va-fg1: var(--va-theme); /* bright vivid color */
+  --va-fg2: #aaa; /* secondary: usually gray and unimportant */
+  --va-fg3: #fff; /* complement: e.g. text color on primary background */
+
+  /* border color */
+  --va-bd: #ccc;
+  --va-bd1: var(--va-theme);
+  --va-bd2: #eee;
+
+  /* measure */
+  --va-xl: 32px;
+  --va-lg: 16px;
+  --va-md: 8px;
+  --va-sm: 4px;
+  --va-xs: 2px;
+
+  /**
+   * fixed color. 通常取 0.2 透明度用于背景色, 0.4 用于边框色
+   * 例: rgb(from #e91e63 r g b / 20%) // 有兼容性问题
+   * 或: rgb(187 187 187 / 50%) // 正常
+   */
+  --va-c-shadow: 187 187 187; /* 用于阴影 */
+  --va-c-grey: 128 128 128; /* 用于半透明遮罩 */
+  --va-c-blue: 57 129 230;
+  --va-c-green: 37 159 30;
+  --va-c-red: 233 30 99;
+  --va-c-purple: 103 58 183;
+  --va-c-orange: 233 129 36;
+}
+
+/* 深色主题 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --va-theme: #4399ff;
+    --va-bg: #222;
+    --va-bg2: #333;
+    --va-bg3: #4f4f5a;
+    --va-fg: #eee;
+    --va-fg2: #aaa;
+    --va-bd: #888;
+    --va-bd2: #303030;
+    --va-c-red: 255 120 166;
+    --va-c-shadow: 85 85 85;
+  }
 }

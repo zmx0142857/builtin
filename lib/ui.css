@@ -12,6 +12,10 @@ body {
   background: var(--va-bg);
   color: var(--va-fg);
 }
+button {
+  user-select: none;
+  cursor: pointer;
+}
 
 /* 滚动条 */
 ::-webkit-scrollbar {

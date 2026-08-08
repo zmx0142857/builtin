@@ -4,10 +4,13 @@
   "version": "0.4.0",
   "description": "What should be builtin of JS.",
   "files": [
-    "lib"
+    "dist"
   ],
-  "main": "lib/main.js",
+  "main": "dist/index.js",
+  "miniprogram": "dist",
   "scripts": {
+    "build": "node build.mjs",
+    "prepublishOnly": "pnpm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/zmx0142857/builtin/issues"
   },
-  "homepage": "https://github.com/zmx0142857/builtin#readme"
+  "homepage": "https://github.com/zmx0142857/builtin#readme",
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
 }
